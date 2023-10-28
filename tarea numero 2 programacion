@@ -1,0 +1,35 @@
+#include <iostream>
+
+int main() {
+    int acumula_estu = 0;
+    int perfect_estu = 0;
+    int deficient_estu = 0;
+    float prom_secc = 0;
+    float calificaciones_gen = 0;
+    float calificaciones = 0;
+    int respuesta = 1;
+
+    while (respuesta == 1) {
+        printf("Hola, por favor ingrese la nota a analizar: ");
+        scanf("%f", &calificaciones);
+
+        if (calificaciones > 99) {
+            perfect_estu++;
+        } else if (calificaciones < 60) {
+            deficient_estu++;
+        }
+
+        acumula_estu++;
+        calificaciones_gen += calificaciones;
+        prom_secc = calificaciones_gen / acumula_estu;
+
+        printf("¿Quiere continuar ingresando notas? (1/0): ");
+        scanf("%d", &respuesta);
+    }
+
+    printf("El promedio es: %.2f\n", prom_secc);
+    printf("La cantidad de estudiantes deficientes fue: %d\n", deficient_estu);
+    printf("La cantidad de estudiantes eficientes fue: %d\n", perfect_estu);
+
+    return 0;
+}
