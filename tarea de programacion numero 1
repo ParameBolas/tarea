@@ -1,0 +1,40 @@
+#include <iostream>
+
+int main() {
+    int precio_base = 1500;
+    int bono_pagina = 5;
+    int bono_ex1 = 150;
+    int bono_ex2 = 250;
+    int respuesta = 1;
+    int npaginas = 0;
+    int isbn = 0;
+    int precio_total = 0;
+    int precio = 0;
+
+    while (respuesta == 1) {
+        printf("Hola, muy buen dia, por favor ingrese codigo ISBN: ");
+        scanf("%d", &isbn);
+        printf("Ahora por favor ingrese el numero de paginas del libro: ");
+        scanf("%d", &npaginas);
+
+        precio = npaginas * bono_pagina;
+
+        if (npaginas > 550) {
+            precio += bono_ex2;
+        } else if (npaginas >= 300 && npaginas <= 500) {
+            precio += bono_ex1;
+        }
+
+        precio_total = precio_base + precio;
+
+        printf("El codigo ISBN de su libro es: %d\n", isbn);
+        printf("Con un precio de: %d\n", precio_total);
+        printf("\n");
+        printf("\n");
+        
+        printf("¿Quiere continuar ingresando libros? (1/0): ");
+        scanf("%d", &respuesta);
+    }
+
+    return 0;
+}
